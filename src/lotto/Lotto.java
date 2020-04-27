@@ -2,6 +2,7 @@ package lotto;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Lotto {
 	
@@ -24,8 +25,6 @@ public class Lotto {
 				}
 			}
 		}
-		
-		Arrays.sort(lottoNumber);
 		
 		printLottoNumberArray();
 	}
@@ -52,7 +51,6 @@ public class Lotto {
 	}
 
 	public void inputLottoNumberFromUser() {
-		// TODO Auto-generated method stub
-		
+
 	}
 }
