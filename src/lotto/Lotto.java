@@ -7,7 +7,7 @@ public class Lotto {
 	private static final int LOTTO_COUNT = 6;
 	private static final int MAX_LOTTO_NUMBER = 42;
 
-	public int[] getRandomLottoNumber() {
+	public int[] getNonoverlapRandomLottoNumber() {
 		
 		int[] lottoNumber = new int[LOTTO_COUNT];
 		Random random = new Random();
