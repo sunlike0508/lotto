@@ -6,9 +6,9 @@ import java.util.Random;
 public class Lotto {
 	
 	private static final int LOTTO_COUNT = 6;
-	private static final int MAX_LOTTO_NUMBER = 42;
+	private static final int MAX_lottoNumber = 42;
 	
-	int[] LOTTO_NUMBER = new int[LOTTO_COUNT];
+	int[] lottoNumber = new int[LOTTO_COUNT];
 	int[] userLottoNumber = new int [LOTTO_COUNT];
 
 	public Lotto() {
@@ -16,16 +16,16 @@ public class Lotto {
 		Random random = new Random();
 		
 		for(int i = 0; i < LOTTO_COUNT; i++) {
-			LOTTO_NUMBER[i] = random.nextInt(MAX_LOTTO_NUMBER)+1;
+			lottoNumber[i] = random.nextInt(MAX_lottoNumber)+1;
 			
 			for(int j = 0; j < i; j++) {
-				if(LOTTO_NUMBER[i] == LOTTO_NUMBER[j]) {
+				if(lottoNumber[i] == lottoNumber[j]) {
 					continue;
 				}
 			}
 		}
 		
-		Arrays.sort(LOTTO_NUMBER);
+		Arrays.sort(lottoNumber);
 		
 		printLottoNumberArray();
 	}
@@ -44,7 +44,7 @@ public class Lotto {
 	}
 	
 	private void printLottoNumberArray() {
-		for(int number : LOTTO_NUMBER) {
+		for(int number : lottoNumber) {
 			System.out.print(number + " ");
 		}
 		
