@@ -51,6 +51,18 @@ public class Lotto {
 	}
 
 	public void inputLottoNumberFromUser() {
-
+		Scanner sc = new Scanner(System.in);
+		
+		for(int i = 0; i < LOTTO_COUNT; i++) {
+			userLottoNumber[i] = sc.nextInt();
+			
+			for(int j = 0; j < i; j++) {
+				if(userLottoNumber[i] == userLottoNumber[j]) {
+					continue;
+				}
+			}
+		}
+		
+		sc.close();
 	}
 }
