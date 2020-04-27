@@ -54,4 +54,12 @@ class lottoTest {
 	void testShouldReturnFailCheckNonoverlapNumberOfSix() {
 		assertFalse(lotto.validateNonoverlapNumberList(new int[] {1,2,3,4,5,1}));
 	}
+	
+	@Test
+	@DisplayName("여섯 개 중복되지 않는 랜덤 생성하는 메소드")
+	void testShouldReturnNonoverlapRandomNumberOfSix() {
+		int[] lottoNumbers = lotto.getRandomLottoNumber();
+		assertEquals(6, lottoNumbers.length);
+		assertTrue(lotto.validateNonoverlapNumberList(lottoNumbers));
+	}
 }
