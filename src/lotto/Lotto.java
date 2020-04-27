@@ -9,6 +9,7 @@ public class Lotto {
 	private static final int MAX_LOTTO_NUMBER = 42;
 	
 	int[] LOTTO_NUMBER = new int[LOTTO_COUNT];
+	int[] userLottoNumber = new int [LOTTO_COUNT];
 
 	public Lotto() {
 		
@@ -48,5 +49,10 @@ public class Lotto {
 		}
 		
 		System.out.println();
+	}
+
+	public void inputLottoNumberFromUser() {
+		// TODO Auto-generated method stub
+		
 	}
 }
