@@ -49,4 +49,9 @@ public class Lotto {
 		
 		System.out.println();
 	}
+
+	public String matchClassLottNumber() {
+		
+		return "1등";
+	}
 }

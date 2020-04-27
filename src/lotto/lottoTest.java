@@ -41,4 +41,10 @@ class lottoTest {
 	void testShouldReturnSuccessCheckNonoverlapRandomNumberOfSix() {
 		assertTrue(lotto.validateNonoverlapNumberList());
 	}
+	
+	@Test
+	@DisplayName("로또번호 당첨 확인 메소드 테스트. 결과는 1등")
+	void testShouldReturnFirstClassMatch() {
+		assertEquals("1등", lotto.matchClassLottNumber());
+	}
 }
