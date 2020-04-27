@@ -53,4 +53,10 @@ class lottoTest {
 	void testShouldReturnSuccessCheckNonoverlapRandomNumberOfSix() {
 		assertTrue(lotto.validateNonoverlapNumberList(lotto.LOTTO_NUMBER));
 	}
+	
+	@Test
+	@DisplayName("사용자로부터 로또 번호 입력 받은 숫자 중복 테스트")
+	void testShouldReturnSuccessNonoverlapInputNumberFromUser() {
+		assertTrue(lotto.validateNonoverlapNumberList(lotto.inputLottoNumberFromUser()));
+	}
 }
