@@ -1,5 +1,6 @@
 package lotto;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Lotto {
@@ -23,14 +24,16 @@ public class Lotto {
 			}
 		}
 		
+		Arrays.sort(LOTTO_NUMBER);
+		
 		printLottoNumberArray();
 	}
 
-	public Boolean validateNonoverlapNumberList(int[] lotterNumber) {
+	public Boolean validateNonoverlapNumberList() {
 		
 		for(int i = 0; i < LOTTO_COUNT; i++) {
 			for(int j = i+1 ; j < LOTTO_COUNT; j++) {
-				if(lotterNumber[i] == lotterNumber[j]) {
+				if(LOTTO_NUMBER[i] == LOTTO_NUMBER[j]) {
 					return false;
 				}
 			}
