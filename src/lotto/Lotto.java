@@ -14,6 +14,13 @@ public class Lotto {
 		
 		for(int i = 0; i < LOTTO_COUNT; i++) {
 			lottoNumber[i] = random.nextInt(MAX_LOTTO_NUMBER)+1;
+			
+			for(int j = 0; j < i; j++) {
+				if(lottoNumber[i] == lottoNumber[i]) {
+					i--;
+					break;
+				}
+			}
 		}
 		
 		return lottoNumber;
