@@ -3,7 +3,6 @@ package lotto;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -58,7 +57,6 @@ class lottoTest {
 	@Test
 	@DisplayName("사용자로부터 로또 번호 입력 받은 숫자 중복 테스트")
 	void testShouldReturnSuccessNonoverlapInputNumberFromUser() {
-		lotto.inputLottoNumberFromUser();
-		assertTrue(lotto.validateNonoverlapNumberList(lotto.userLottoNumber));
+		assertTrue(lotto.validateNonoverlapNumberList(lotto.createLottoNumber()));
 	}
 }
