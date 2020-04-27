@@ -37,9 +37,17 @@ class lottoTest {
 	}
 	
 	@Test
+	@DisplayName("여섯 개 랜덤 생성하는 메소드")
 	void testShouldReturnRandomNumberOfSix() {
 		int[] lottoNumbers = lotto.getRandomLottoNumber();
 		assertEquals(6, lottoNumbers.length);
+	}
+	
+	@Test
+	@DisplayName("숫자 배열 중복 검사하는 메소드")
+	void testShouldReturnSuccessCheckNonoverlapNumberOfSix() {
+		
+		assertTrue(lotto.validateNonoverlapNumberList(new int[] {1,2,3,4,5,6}));
 	}
 
 }

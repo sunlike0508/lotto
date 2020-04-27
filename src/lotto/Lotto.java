@@ -19,4 +19,8 @@ public class Lotto {
 		return lottoNumber;
 	}
 
+	public Boolean validateNonoverlapNumberList(int[] lotterNumber) {
+
+		return true;
+	}
 }
