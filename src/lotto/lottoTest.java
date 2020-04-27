@@ -37,14 +37,20 @@ class lottoTest {
 	}
 	
 	@Test
-	@DisplayName("랜덤으로 생성된 숫자 중복 검사 테스트. 결과는 성공")
-	void testShouldReturnSuccessCheckNonoverlapRandomNumberOfSix() {
-		assertTrue(lotto.validateNonoverlapNumberList());
+	@DisplayName("숫자 배열 중복 검사 하는 메소드. 결과 값은 성공")
+	void testShouldReturnSuccessCheckNonoverlapNumberOfSix() {
+		assertTrue(lotto.validateNonoverlapNumberList(new int[] {1,2,3,4,5,6}));
+	}
+
+	@Test
+	@DisplayName("숫자 배열 중복 검사하는 메소드. 결과 값을 실패")
+	void testShouldReturnFailCheckNonoverlapNumberOfSix() {
+		assertFalse(lotto.validateNonoverlapNumberList(new int[] {1,2,3,4,5,1}));
 	}
 	
 	@Test
-	@DisplayName("로또번호 당첨 확인 메소드 테스트. 결과는 1등")
-	void testShouldReturnFirstClassMatch() {
-		assertEquals("1등", lotto.matchClassLottNumber());
+	@DisplayName("랜덤으로 생성된 숫자 중복 검사 테스트. 결과는 성공")
+	void testShouldReturnSuccessCheckNonoverlapRandomNumberOfSix() {
+		assertTrue(lotto.validateNonoverlapNumberList(lotto.LOTTO_NUMBER));
 	}
 }

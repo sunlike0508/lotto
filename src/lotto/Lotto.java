@@ -5,10 +5,10 @@ import java.util.Random;
 
 public class Lotto {
 	
-	private static final int LOTTO_COUNT = 7;
+	private static final int LOTTO_COUNT = 6;
 	private static final int MAX_LOTTO_NUMBER = 42;
 	
-	private int[] LOTTO_NUMBER = new int[LOTTO_COUNT];
+	int[] LOTTO_NUMBER = new int[LOTTO_COUNT];
 
 	public Lotto() {
 		
@@ -29,11 +29,11 @@ public class Lotto {
 		printLottoNumberArray();
 	}
 
-	public Boolean validateNonoverlapNumberList() {
+	public Boolean validateNonoverlapNumberList(int[] lotterNumber) {
 		
 		for(int i = 0; i < LOTTO_COUNT; i++) {
 			for(int j = i+1 ; j < LOTTO_COUNT; j++) {
-				if(LOTTO_NUMBER[i] == LOTTO_NUMBER[j]) {
+				if(lotterNumber[i] == lotterNumber[j]) {
 					return false;
 				}
 			}
@@ -48,10 +48,5 @@ public class Lotto {
 		}
 		
 		System.out.println();
-	}
-
-	public String matchClassLottNumber() {
-		
-		return "1등";
 	}
 }
