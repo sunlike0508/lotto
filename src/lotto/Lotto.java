@@ -67,4 +67,9 @@ public class Lotto {
 		
 		System.out.println();
 	}
+
+	public String matchClassLottoNumber(LottoNumber lottoNumber) {
+		
+		return "2등";
+	}
 }

@@ -24,10 +24,12 @@ class lottoTest {
 	 */
 	
 	private Lotto lotto;
+	LottoNumber lottoNumber;
 	
 	@BeforeEach
 	void testBeoreEach() {
 		lotto = new Lotto();
+		lottoNumber = lotto.createLottoNumber();
 	}
 
 	@Test
@@ -57,7 +59,13 @@ class lottoTest {
 	@Test
 	@DisplayName("랜덤으로 생성되는 로또 번호 중복 테스트")
 	void testShouldReturnSuccessNonoverlapRandomNumberFromUser() {
-		LottoNumber lottoNumber = lotto.createLottoNumber();
 		assertTrue(lotto.validateNonoverlapNumberList(lottoNumber.lottoNumber, lottoNumber.bonusNumber));
+	}
+	
+	@Test
+	@DisplayName("로또 번호와 자동(여기선 임의의 값) 생성된 번호를 비교하여 당첨결과 알려주는 메소드 테스트. 결과는 2등")
+	void testShouldReturnSecondClassCompareLottoNumber() {
+		LottoNumber lottoNumber = lotto.createLottoNumber();
+		assertEquals(new String("2등"), lotto.matchClassLottoNumber(lottoNumber));
 	}
 }
