@@ -97,4 +97,12 @@ public class LottoMatch {
 		System.out.print(lotto.bonusNumber);
 		System.out.println();
 	}
+	
+	public static void main(String[] argv) {
+		LottoMatch lottoMatch = new LottoMatch();
+		Lotto mylottNumber = lottoMatch.createLottoNumber();
+		lottoMatch.printLottoNumberArray(lottoMatch.lotto);
+		lottoMatch.printLottoNumberArray(mylottNumber);
+		System.out.println(lottoMatch.matchClassLottoNumber(mylottNumber));
+	}
 }
