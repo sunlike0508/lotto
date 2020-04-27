@@ -22,6 +22,8 @@ public class Lotto {
 				}
 			}
 		}
+		
+		printLottoNumberArray();
 	}
 
 	public Boolean validateNonoverlapNumberList(int[] lotterNumber) {
@@ -35,5 +37,13 @@ public class Lotto {
 		}
 		
 		return true;
+	}
+	
+	private void printLottoNumberArray() {
+		for(int number : LOTTO_NUMBER) {
+			System.out.print(number + " ");
+		}
+		
+		System.out.println();
 	}
 }
