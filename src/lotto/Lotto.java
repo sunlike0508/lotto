@@ -19,20 +19,21 @@ public class Lotto {
 		
 		lottoNubmer = createLottoNumber();
 		
-		printLottoNumberArray(lottoNubmer.lottoNumber);
+		printLottoNumberArray(lottoNubmer);
 	}
 
 	public LottoNumber createLottoNumber() {
+		Random random = new Random();
 		LottoNumber lottoNumber = new LottoNumber();
 		lottoNumber.lottoNumber = new int[LOTTO_COUNT];
-		
-		Random random = new Random();
+		lottoNumber.bonusNumber = random.nextInt(MAX_LOTTO_NUMBER);
 		
 		for(int i = 0; i < LOTTO_COUNT; i++) {
 			lottoNumber.lottoNumber[i] = random.nextInt(MAX_LOTTO_NUMBER);
 			
 			for(int j = 0; j < i; j++) {
-				if(lottoNumber.lottoNumber[i] == lottoNumber.lottoNumber[j]) {
+				if(lottoNumber.lottoNumber[i] == lottoNumber.lottoNumber[j] 
+						||  lottoNumber.lottoNumber[i] == lottoNumber.bonusNumber) {
 					i--;
 					break;
 				}
@@ -44,11 +45,11 @@ public class Lotto {
 		return lottoNumber;
 	}
 
-	public Boolean validateNonoverlapNumberList(int[] lotterNumber) {
+	public Boolean validateNonoverlapNumberList(int[] lotterNumber, int bonusNumber) {
 		
 		for(int i = 0; i < LOTTO_COUNT; i++) {
 			for(int j = i+1 ; j < LOTTO_COUNT; j++) {
-				if(lotterNumber[i] == lotterNumber[j]) {
+				if(lotterNumber[i] == lotterNumber[j] || lotterNumber[i] == bonusNumber) {
 					return false;
 				}
 			}
@@ -57,10 +58,12 @@ public class Lotto {
 		return true;
 	}
 	
-	private void printLottoNumberArray(int[] numberArray) {
-		for(int number : numberArray) {
+	private void printLottoNumberArray(LottoNumber lottoNumber) {
+		for(int number : lottoNumber.lottoNumber) {
 			System.out.print(number + " ");
 		}
+		
+		System.out.print(lottoNumber.bonusNumber);
 		
 		System.out.println();
 	}
