@@ -8,11 +8,8 @@ class Lotto{
 	int bonusNumber;
 }
 
-public class LottoMatch {
-	
-	private static final int LOTTO_COUNT = 6;
-	private static final int MAX_LOTTO_NUMBER = 45;
-	
+public class LottoMatch implements LottoInterface{
+
 	Lotto lotto;
 
 	public LottoMatch() {
@@ -74,15 +71,15 @@ public class LottoMatch {
 	}
 
 	private String returnMatchClass(Lotto userlotto, int matchCount) {
-		if(matchCount == 6) {
+		if(matchCount == FIRST_CLASS) {
 			return "1등";
-		} else if(matchCount == 5 && lotto.bonusNumber == userlotto.bonusNumber){
+		} else if(matchCount == SECOND_CLASS && lotto.bonusNumber == userlotto.bonusNumber){
 			return "2등";
-		} else if(matchCount == 5){
+		} else if(matchCount == THIRD_CLASS){
 			return "3등";
-		} else if(matchCount == 4){
+		} else if(matchCount == FOUR_CLASS){
 			return "4등";
-		} else if(matchCount == 3) {
+		} else if(matchCount == FIVE_CLASS) {
 			return "5등";
 		} else {
 			return "꽝";
