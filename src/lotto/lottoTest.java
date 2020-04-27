@@ -2,6 +2,8 @@ package lotto;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,14 +35,7 @@ class lottoTest {
 	@Test
 	@DisplayName("Test create lotto object")
 	void testShouldReturnSuccessWhenLottoClassIsCreated() {
-		assertFalse(lotto == null);
-	}
-	
-	@Test
-	@DisplayName("여섯 개 랜덤 생성하는 메소드")
-	void testShouldReturnRandomNumberOfSix() {
-		int[] lottoNumbers = lotto.getNonoverlapRandomLottoNumber();
-		assertEquals(6, lottoNumbers.length);
+		assertTrue(lotto != null);
 	}
 	
 	@Test
@@ -53,11 +48,5 @@ class lottoTest {
 	@DisplayName("숫자 배열 중복 검사하는 메소드. 결과 값을 실패")
 	void testShouldReturnFailCheckNonoverlapNumberOfSix() {
 		assertFalse(lotto.validateNonoverlapNumberList(new int[] {1,2,3,4,5,1}));
-	}
-	
-	@Test
-	@DisplayName("여섯 개 중복되지 않는 랜덤 생성하는 메소드 수정")
-	void testShouldReturnNonoverlapRandomNumberOfSix() {
-		assertTrue(lotto.validateNonoverlapNumberList(lotto.getNonoverlapRandomLottoNumber()));
 	}
 }
