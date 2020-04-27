@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Lotto {
 	
-	private static final int LOTTO_COUNT = 6;
+	private static final int LOTTO_COUNT = 7;
 	private static final int MAX_LOTTO_NUMBER = 42;
 	
 	private int[] LOTTO_NUMBER = new int[LOTTO_COUNT];
