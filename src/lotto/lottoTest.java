@@ -2,6 +2,7 @@ package lotto;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,19 +20,24 @@ class lottoTest {
 	 	3. 시뮬레이션 프로세스
 	 	  * N개의 로또 자동 생성
 	 	  * 당첨 번호 생성
-	 	  * N개의 로또 의 당첨여부를 통개내어 출력
+	 	  * N개의 로또 의 당첨여부를 통계내어 출력
 	 */
+	
+	private Lotto lotto;
+	
+	@BeforeEach
+	void testBeoreEach() {
+		lotto = new Lotto();
+	}
 
 	@Test
 	@DisplayName("Test create lotto object")
 	void testShouldReturnSuccessWhenLottoClassIsCreated() {
-		Lotto lotto = new Lotto();
 		assertFalse(lotto == null);
 	}
 	
 	@Test
 	void testShouldReturnRandomNumberOfSix() {
-		Lotto lotto = new Lotto();
 		int[] lottoNumbers = lotto.getRandomLottoNumber();
 		assertEquals(6, lottoNumbers.length);
 	}
