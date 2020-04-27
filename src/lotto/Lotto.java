@@ -1,36 +1,45 @@
 package lotto;
 
+import java.util.Arrays;
 import java.util.Random;
+
+class LottoNumber{	
+	int[] lottoNumber;
+	int bonusNumber;
+}
 
 public class Lotto {
 	
 	private static final int LOTTO_COUNT = 6;
-	private static final int MAX_LOTTO_NUMBER = 42;
+	private static final int MAX_LOTTO_NUMBER = 46;
 	
-	int[] lottoNumber = new int[LOTTO_COUNT];
+	LottoNumber lottoNubmer;
 
 	public Lotto() {
 		
-		lottoNumber = createLottoNumber();
+		lottoNubmer = createLottoNumber();
 		
-		printLottoNumberArray(lottoNumber);
+		printLottoNumberArray(lottoNubmer.lottoNumber);
 	}
 
-	public int[] createLottoNumber() {
-		int[] lottoNumber = new int[LOTTO_COUNT];
+	public LottoNumber createLottoNumber() {
+		LottoNumber lottoNumber = new LottoNumber();
+		lottoNumber.lottoNumber = new int[LOTTO_COUNT];
 		
 		Random random = new Random();
 		
 		for(int i = 0; i < LOTTO_COUNT; i++) {
-			lottoNumber[i] = random.nextInt(MAX_LOTTO_NUMBER)+1;
+			lottoNumber.lottoNumber[i] = random.nextInt(MAX_LOTTO_NUMBER);
 			
 			for(int j = 0; j < i; j++) {
-				if(lottoNumber[i] == lottoNumber[j]) {
+				if(lottoNumber.lottoNumber[i] == lottoNumber.lottoNumber[j]) {
 					i--;
 					break;
 				}
 			}
 		}
+		
+		Arrays.sort(lottoNumber.lottoNumber);
 		
 		return lottoNumber;
 	}

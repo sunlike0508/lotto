@@ -49,14 +49,9 @@ class lottoTest {
 	}
 	
 	@Test
-	@DisplayName("랜덤으로 생성된 숫자 중복 검사 테스트. 결과는 성공")
-	void testShouldReturnSuccessCheckNonoverlapRandomNumberOfSix() {
-		assertTrue(lotto.validateNonoverlapNumberList(lotto.lottoNumber));
-	}
-	
-	@Test
-	@DisplayName("사용자로부터 로또 번호 입력 받은 숫자 중복 테스트")
-	void testShouldReturnSuccessNonoverlapInputNumberFromUser() {
-		assertTrue(lotto.validateNonoverlapNumberList(lotto.createLottoNumber()));
+	@DisplayName("랜덤으로 생성되는 로또 번호 중복 테스트")
+	void testShouldReturnSuccessNonoverlapRandomNumberFromUser() {
+		LottoNumber lottoNumber = lotto.createLottoNumber();
+		assertTrue(lotto.validateNonoverlapNumberList(lottoNumber.lottoNumber));
 	}
 }
