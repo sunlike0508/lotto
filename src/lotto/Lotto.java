@@ -21,11 +21,12 @@ public class Lotto {
 			
 			for(int j = 0; j < i; j++) {
 				if(lottoNumber[i] == lottoNumber[j]) {
-					continue;
+					i--;
+					break;
 				}
 			}
 		}
-		
+		Arrays.sort(lottoNumber);
 		printLottoNumberArray(lottoNumber);
 	}
 
@@ -58,7 +59,8 @@ public class Lotto {
 			
 			for(int j = 0; j < i; j++) {
 				if(userLottoNumber[i] == userLottoNumber[j]) {
-					continue;
+					i--;
+					break;
 				}
 			}
 		}
