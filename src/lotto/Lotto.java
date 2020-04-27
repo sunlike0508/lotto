@@ -11,25 +11,22 @@ class LottoNumber{
 public class Lotto {
 	
 	private static final int LOTTO_COUNT = 6;
-	private static final int MAX_LOTTO_NUMBER = 46;
+	private static final int MAX_LOTTO_NUMBER = 45;
 	
 	LottoNumber lottoNubmer;
 
 	public Lotto() {
-		
 		lottoNubmer = createLottoNumber();
-		
-		printLottoNumberArray(lottoNubmer);
 	}
 
 	public LottoNumber createLottoNumber() {
 		Random random = new Random();
 		LottoNumber lottoNumber = new LottoNumber();
 		lottoNumber.lottoNumber = new int[LOTTO_COUNT];
-		lottoNumber.bonusNumber = random.nextInt(MAX_LOTTO_NUMBER);
+		lottoNumber.bonusNumber = random.nextInt(MAX_LOTTO_NUMBER)+1;
 		
 		for(int i = 0; i < LOTTO_COUNT; i++) {
-			lottoNumber.lottoNumber[i] = random.nextInt(MAX_LOTTO_NUMBER);
+			lottoNumber.lottoNumber[i] = random.nextInt(MAX_LOTTO_NUMBER)+1;
 			
 			for(int j = 0; j < i; j++) {
 				if(lottoNumber.lottoNumber[i] == lottoNumber.lottoNumber[j] 
@@ -64,12 +61,32 @@ public class Lotto {
 		}
 		
 		System.out.print(lottoNumber.bonusNumber);
-		
 		System.out.println();
 	}
 
-	public String matchClassLottoNumber(LottoNumber lottoNumber) {
+	public String matchClassLottoNumber(LottoNumber userlottoNumber) {
+		int matchCount = 0;
 		
-		return "2등";
+		for(int i = 0; i < LOTTO_COUNT; i++) {
+			for(int j = 0; j < LOTTO_COUNT; j++) {
+				if(lottoNubmer.lottoNumber[i] == userlottoNumber.lottoNumber[j]) {
+					matchCount++;
+				}
+			}
+		}
+
+		if(matchCount == 6) {
+			return "1등";
+		} else if(matchCount == 5 && lottoNubmer.bonusNumber == userlottoNumber.bonusNumber){
+			return "2등";
+		} else if(matchCount == 5){
+			return "3등";
+		} else if(matchCount == 4){
+			return "4등";
+		} else if(matchCount == 3) {
+			return "5등";
+		} else {
+			return "꽝";
+		}
 	}
 }

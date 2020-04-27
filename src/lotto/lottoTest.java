@@ -23,13 +23,13 @@ class lottoTest {
 	 	  * N개의 로또 의 당첨여부를 통계내어 출력
 	 */
 	
-	private Lotto lotto;
-	LottoNumber lottoNumber;
+	Lotto lotto;
+	LottoNumber userlottoNumber;
 	
 	@BeforeEach
 	void testBeoreEach() {
 		lotto = new Lotto();
-		lottoNumber = lotto.createLottoNumber();
+		userlottoNumber = lotto.createLottoNumber();
 	}
 
 	@Test
@@ -59,13 +59,19 @@ class lottoTest {
 	@Test
 	@DisplayName("랜덤으로 생성되는 로또 번호 중복 테스트")
 	void testShouldReturnSuccessNonoverlapRandomNumberFromUser() {
-		assertTrue(lotto.validateNonoverlapNumberList(lottoNumber.lottoNumber, lottoNumber.bonusNumber));
+		assertTrue(lotto.validateNonoverlapNumberList(userlottoNumber.lottoNumber, userlottoNumber.bonusNumber));
 	}
 	
 	@Test
 	@DisplayName("로또 번호와 자동(여기선 임의의 값) 생성된 번호를 비교하여 당첨결과 알려주는 메소드 테스트. 결과는 2등")
 	void testShouldReturnSecondClassCompareLottoNumber() {
-		LottoNumber lottoNumber = lotto.createLottoNumber();
-		assertEquals(new String("2등"), lotto.matchClassLottoNumber(lottoNumber));
+		Lotto lottoNumber = new Lotto();
+		lottoNumber.lottoNubmer.lottoNumber = new int[] {1,2,3,4,5,7};
+		lottoNumber.lottoNubmer.bonusNumber = 10;
+		
+		LottoNumber tempLottoNumber = new LottoNumber();
+		tempLottoNumber.lottoNumber = new int[] {1,2,3,4,5,6};
+		tempLottoNumber.bonusNumber = 10;
+		assertEquals(new String("2등"), lottoNumber.matchClassLottoNumber(tempLottoNumber));
 	}
 }
