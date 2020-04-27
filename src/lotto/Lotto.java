@@ -20,7 +20,15 @@ public class Lotto {
 	}
 
 	public Boolean validateNonoverlapNumberList(int[] lotterNumber) {
-
+		
+		for(int i = 0; i < LOTTO_COUNT-1; i++) {
+			for(int j = i+1 ; j < LOTTO_COUNT; j++) {
+				if(lotterNumber[i] == lotterNumber[j]) {
+					return false;
+				}
+			}
+		}
+		
 		return true;
 	}
 }

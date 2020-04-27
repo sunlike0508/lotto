@@ -46,7 +46,6 @@ class lottoTest {
 	@Test
 	@DisplayName("숫자 배열 중복 검사하는 메소드")
 	void testShouldReturnSuccessCheckNonoverlapNumberOfSix() {
-		
 		assertTrue(lotto.validateNonoverlapNumberList(new int[] {1,2,3,4,5,6}));
 	}
 
